@@ -19,6 +19,9 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension> {
   final Color? photoIconBgColor;
   final Color? photoIconColor;
   final Color? profilePageBgColor;
+  final Color? chatTextFieldBgColor;
+  final Color? chatPageBgColor;
+  final Color? chatPageDoodleColor;
 
   const CustomThemeExtension({
     this.circleImageColor,
@@ -30,6 +33,9 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension> {
     this.photoIconBgColor,
     this.photoIconColor,
     this.profilePageBgColor,
+    this.chatTextFieldBgColor,
+    this.chatPageBgColor,
+    this.chatPageDoodleColor,
   });
 
   static const lightMode = CustomThemeExtension(
@@ -42,6 +48,9 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension> {
     photoIconBgColor: Color(0xFFF0F2F3),
     photoIconColor: Color(0xFF9DAAB3),
     profilePageBgColor: Color(0xFFF7F8FA),
+    chatTextFieldBgColor: Colors.white,
+    chatPageBgColor: Color(0xFFEFE7DE),
+    chatPageDoodleColor: Colors.white70,
   );
 
   static const darkMode = CustomThemeExtension(
@@ -54,7 +63,9 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension> {
     photoIconBgColor: Color(0xFF283339),
     photoIconColor: Color(0xFF61717B),
     profilePageBgColor: Color(0xFF0B141A),
-
+    chatTextFieldBgColor: Coloors.greyBackground,
+    chatPageBgColor: Color(0xFF081419),
+    chatPageDoodleColor: Color(0xFF172428),
   );
 
   @override
@@ -68,6 +79,10 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension> {
     Color? photoIconBgColor,
     Color? photoIconColor,
     Color? profilePageBgColor,
+    Color? chatTextFieldBgColor,
+    Color? chatPageBgColor,
+    Color? chatPageDoodleColor,    
+
   }) {
     return CustomThemeExtension(
       circleImageColor: circleImageColor ?? this.circleImageColor,
@@ -80,7 +95,9 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension> {
       photoIconBgColor: photoIconBgColor ?? this.photoIconBgColor,
       photoIconColor: photoIconColor ?? this.photoIconColor,
       profilePageBgColor: profilePageBgColor ?? this.profilePageBgColor,
-
+      chatTextFieldBgColor: chatTextFieldBgColor ?? this.chatTextFieldBgColor,
+      chatPageBgColor: chatPageBgColor ?? this.chatPageBgColor,
+      chatPageDoodleColor: chatPageDoodleColor ?? this.chatPageDoodleColor,
     );
   }
 
@@ -99,7 +116,14 @@ class CustomThemeExtension extends ThemeExtension<CustomThemeExtension> {
           Color.lerp(langBtnHighlightColor, other.langBtnHighlightColor, t),
       photoIconBgColor: Color.lerp(photoIconBgColor, other.photoIconBgColor, t),
       photoIconColor: Color.lerp(photoIconColor, other.photoIconColor, t),
-      profilePageBgColor: Color.lerp(profilePageBgColor, other.profilePageBgColor, t),
+      profilePageBgColor:
+          Color.lerp(profilePageBgColor, other.profilePageBgColor, t),
+      chatTextFieldBgColor:
+          Color.lerp(chatTextFieldBgColor, other.chatTextFieldBgColor, t),
+      chatPageBgColor: Color.lerp(chatPageBgColor, other.chatPageBgColor, t),
+      chatPageDoodleColor: Color.lerp(chatPageDoodleColor, other.chatPageDoodleColor, t),
+          
+          
 
     );
   }

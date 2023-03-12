@@ -2,11 +2,13 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:whatsapp_clone/common/extension/custom_theme_extension.dart';
 import '../../../common/models/user_model.dart';
 import '../../../common/routes/routes.dart';
 import '../../../common/widgets/custom_icon_button.dart';
 import '../../../common/widgets/last_seen_message.dart';
 import '../../auth/controller/auth_controller.dart';
+import '../widgets/chat_text_field.dart';
 
 class ChatPage extends ConsumerWidget {
   const ChatPage({
@@ -18,6 +20,7 @@ class ChatPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
+      backgroundColor: context.theme.chatPageBgColor,
       appBar: AppBar(
         leading: InkWell(
           onTap: () {
@@ -80,7 +83,7 @@ class ChatPage extends ConsumerWidget {
                         lastSeenMessage(singleUserModel.lastSeen);
                     return Text(
                       singleUserModel.active
-                          ? " Online"
+                          ? "Online"
                           : "last seen $lastMessage ago",
                       style: const TextStyle(
                         fontSize: 12,
@@ -109,6 +112,27 @@ class ChatPage extends ConsumerWidget {
             onTap: () {},
             icon: Icons.more_vert,
             iconColor: Colors.white,
+          ),
+        ],
+      ),
+      body: Stack(
+        children: [
+          Image(
+            height: double.maxFinite,
+            width: double.maxFinite,
+            fit: BoxFit.cover,
+            image: const AssetImage("assets/images/doodle_bg.png"),
+            color: context.theme.chatPageDoodleColor,
+          ),
+          Column(
+            children: [
+              Expanded(
+                child: Container(),
+              ),
+              ChatTextField(
+                receiverId: user.uid,
+              ),
+            ],
           ),
         ],
       ),

@@ -123,7 +123,6 @@ class ProfilePage extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(height: 10),
                 ListTile(
                   contentPadding: const EdgeInsets.only(left: 25, right: 10),
                   leading: CustomIconButton(
@@ -169,8 +168,8 @@ class SliverPersistentDelegate extends SliverPersistentHeaderDelegate {
   final UserModel user;
   final double maxHeaderHeight = 180;
   final double minHeadereight = kToolbarHeight + 20;
-  final double maxImageSize = 130;
-  final double minImageSize = 40;
+  final double maxImageSize = 113;
+  final double minImageSize = 35;
 
   SliverPersistentDelegate(this.user);
 
@@ -231,7 +230,7 @@ class SliverPersistentDelegate extends SliverPersistentHeaderDelegate {
               ),
             ),
             Positioned(
-              left: currentImagePosition,
+              left: currentImagePosition + 5,
               top: MediaQuery.of(context).viewPadding.top + 5,
               bottom: 0,
               child: Hero(
@@ -239,7 +238,6 @@ class SliverPersistentDelegate extends SliverPersistentHeaderDelegate {
                 child: Container(
                   width: currentImageSize,
                   decoration: BoxDecoration(
-                    color: Colors.white,
                     shape: BoxShape.circle,
                     image: DecorationImage(
                       image: CachedNetworkImageProvider(user.profileImageUrl),
